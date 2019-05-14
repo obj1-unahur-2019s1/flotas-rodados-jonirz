@@ -10,11 +10,7 @@ class Corsa {
 
 class Kwid{
 	var property tanqueAdicional
-	var property color
 	
-	
-	method tieneTanque(){tanqueAdicional = true}
-	method noTieneTanque(){tanqueAdicional = false}
 	
 	method capacidad(){return if (tanqueAdicional){3} else {4}}
 	
@@ -58,15 +54,12 @@ object trafic{
 }
 
 class AutoEspecial{
-	var property cantidadPersonas
-	var property velocidad
-	var property pesoAuto
-	var property colorAuto
+	var property capacidad
+	var property velocidadMaxima
+	var property peso
+	var property color
 	
-	method capacidad(){}
-	method velocidadMaxima(){}
-	method peso(){}
-	method color(){}
+	
 }
 
 

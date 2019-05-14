@@ -1,7 +1,12 @@
 import flotaAutos.*
+import pedidos.*
 
 class Dependencia{
-	var flota = [] 
+	const flota = #{}
+	
+	var property empleados = 0 
+	
+	
 	
 	method agregarAFlota(rodado){ flota.add(rodado)}
 	
@@ -11,11 +16,13 @@ class Dependencia{
 	
 	method estaBienEquipada(){return flota.size() >= 3 and flota.all({v => v.velocidadMaxima() >= 100})}
 	
-	method capacidadTotalEnColor(color){flota.filter({c => c.color(color)} )}
+	method capacidadTotalEnColor(color){flota.filter{c => c.color()== color}.sum{c => c.capacidad()}}
 	
-	method colorDelRodadoMasRapido(){flota.max({c =>c.color().velocidadMaxima()})}
+	method colorDelRodadoMasRapido(){flota.max({c =>c.velocidadMaxima()}.color())}
 	
-	method capacidadFaltante(){}
+	method capacidadFaltante(){return empleados - self.capacidadTotal()}
 	
-	method esGrande(){}
+	method capacidadTotal() {return flota.sum { r => r.capacidad() }}
+	
+	method esGrande(){return empleados >= 40 and flota.size() >= 5}
 }
